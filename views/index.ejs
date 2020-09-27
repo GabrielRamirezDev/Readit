@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <title>Readit</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="index">
+<div class="container">
+
+    <div class="jumbotron text-center">
+        <h1>Readit</h1>
+        <h3>
+          <span>The front page of internet</span>
+          <span class="ital">for book lovers</span>
+        </h3>
+        <img src="img/robot.png" alt="reedit robot">
+
+        <p>Login or Signup:</p>
+
+        <a href="/login" class="btn btn-default"><span class="fa fa-user"></span>Login</a>
+        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span>Signup</a>
+        <p>Register now to vote for your favorite books</p>
+    </div>
+    <section class="jumbotron text-center sizing">
+      <h3 class="inline">Most Popular Reads</h3>
+      <img c src="img/book.png" alt="">
+      <ul class="messages">
+      <% for(var i=0; i<messages.length; i++) {%>
+        <li class="message">
+          <span><%= messages[i].title %></span>
+        </li>
+      <% } %>
+      </ul>
+    </section>
+
+
+
+
+</div>
+</body>
+</html>

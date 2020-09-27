@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+    <title>Readit</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/077191d827.js" crossorigin="anonymous"></script>
+</head>
+<body class="frontPage">
+<section class="banner">
+
+</section>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1><img src="img/robot.png" alt="reedit robot">Front Page</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row center">
+
+        <div class="col-sm-6">
+          <h3>Book Rankings</h3>
+          <p class="instructions">Give Your Book a Ranking</p>
+          <ul class="messages">
+          <% for(var i=0; i<messages.length; i++) {%>
+            <li class="message">
+              <span><%= messages[i].name %></span>
+              <span><%= messages[i].title %></span>
+              <span><%= messages[i].msg %></span>
+              <span><%= messages[i].score %></span>
+              [
+              <span><i class="fas fa-dice-one"></i></span>
+              <span><i class="fas fa-dice-two"></i></span>
+              <span><i class="fas fa-dice-three"></i></span>
+              <span><i class="fas fa-dice-four"></i></span>
+              <span><i class="fas fa-dice-five"></i></span>
+              ]
+              <% if(user.local.email == messages[i].name ) { %>
+                <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+              <% } %>
+            </li>
+          <% } %>
+          </ul>
+
+          <h2>Add a Book</h2>
+        <% if (user.local.email) { %>
+          <form action="/messages" method="POST">
+            <input type="text" value="<%= user.local.email %>" name="name">
+            <input id="titleInput"type="text" name="title" value="" placeholder="Book Title">
+            <!-- <input id="scoreInput" type="text" name="score" placeholder="Give a score 1 out of 5"value=""> -->
+            <input type="text" placeholder="message" name="msg">
+            <button type="submit">Submit</button>
+          </form>
+          <p class="instructions">Add a book and see where it ends up in the rankings!</p>
+        </div>
+        <% } %>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
